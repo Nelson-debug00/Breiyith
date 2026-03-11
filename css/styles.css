@@ -13,9 +13,10 @@ body, html {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    background-image: url('/img/5355876.jpg');
-    background-size: cover;
+    background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 50%, #7dd3fc 100%);
+    background-attachment: fixed;
 }
+
 
 /* --- Fondo de Corazones (Recreación fiel) --- */
 .page-container {
