@@ -1,0 +1,182 @@
+:root {
+    --card-pink-border: #f1a9c4; /* Borde de tarjeta */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-image: url('/img/5355876.jpg');
+    background-size: cover;
+}
+
+/* --- Fondo de Corazones (Recreación fiel) --- */
+.page-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* --- Encabezado --- */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    color: #bb065bd6;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+/* --- Contenedor de Opciones --- */
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+    gap: 4rem;
+    width: 60%;
+    max-width: 900px; /* Ancho máximo para el diseño */
+}
+
+/* --- Tarjetas de Opción (Los botones interactivos) --- */
+.option-card {
+    aspect-ratio: 1 / 1; /* Mantener forma cuadrada */
+    background-color: #f7ebeeb4;
+    border: 3px solid var(--card-pink-border);
+    border-radius: 12px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; /* Para recortar el corazón grande */
+    
+    /* Sutil sombra para dar profundidad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    
+    /* Transiciones suaves para hover y active */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efectos de Hover (al pasar el ratón) */
+.option-card:hover {
+    transform: scale(1.03); /* Un pequeño aumento */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Efectos de Active (al pulsar) */
+.option-card:active {
+    transform: scale(0.98); /* Pequeña compresión */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjeta seleccionada con Javascript */
+.option-card.selected {
+    border-color: #e91e63; /* Borde más intenso cuando está seleccionado */
+    border-width: 5px;
+}
+
+.option-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10; /* Mantener por encima de fondos */
+}
+
+/* --- Imágenes de los Osos --- */
+.bear-img {
+    max-height: 80%; /* Ajuste para que no toquen el borde */
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom; /* Alinear hacia abajo para que parezcan estar "parados" */
+}
+
+.bear-img2 {
+    max-height: 100%; /* Ajuste para que no toquen el borde */
+    max-width: 400%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom; /* Alinear hacia abajo para que parezcan estar "parados" */
+}
+
+/* Marcador de posición para si no hay imágenes */
+.placeholder-bear {
+    width: 80%;
+    height: 80%;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #999;
+}
+
+/* --- Mensaje de Selección --- */
+.selection-message {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 8px;
+    color: var(--main-brown);
+    font-size: 1.2rem;
+    border: 2px solid var(--card-pink-border);
+}
+
+.hidden {
+    display: none;
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Cambia 'right' por 'left' si la prefieres al otro lado */
+    z-index: 1000;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+    background-color: #fcd7e3;
+}
+
+.back-arrow svg {
+    display: block;
+}
+
+/* --- Media Queries (Responsividad para móviles) --- */
+@media (max-width: 768px) {
+    .options-container {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+        gap: 1.5rem;
+        max-width: 300px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fredoka', 'Arial Rounded MT Bold', sans-serif;
+    overflow-x: hidden;
+    background-image: url("../img/5355876.jpg");
+    background-size: cover;
+}
+
+@keyframes moveStripes {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 0 0, 40px 40px; }
+}
+
+.main-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tiras de fotos laterales */
+.photo-strip {
+    position: absolute;
+    width: 8%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 5;
+    border: 3px solid #f48fb1;
+}
+
+.photo-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+}
+
+.photo-strip img:hover {
+    /* 1. Agrandar ligeramente (10%) */
+    transform: scale(1.1);
+    
+    /* 2. Añadir una sombra más pronunciada para "levantar" la foto */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    
+    /* 3. Asegurar que la foto agrandada esté por encima de las otras fotos de la tira */
+    z-index: 20;
+    position: relative; /* Necesario para que funcione el z-index */
+}
+
+/* --- Posicionamiento y Rotación de las tiras --- */
+.left { 
+    left: 50px; 
+    transform: rotate(-10deg); 
+}
+
+.right { 
+    right: 50px; 
+    transform: rotate(10deg); 
+}
+
+/* Contenedor del Marco Central */
+.frame-wrapper {
+    position: relative;
+    z-index: 10;
+    perspective: 1000px;
+}
+
+.decorative-frame {
+    background: white;
+    padding: 15px 15px 40px 15px; /* Estilo Polaroid */
+    border: 8px solid #fce4ec; /* Rosa muy claro */
+    border-radius: 5px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 0 0 4px #f8bbd0; /* Borde doble rosa */
+    transform: rotate(2deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+}
+
+.decorative-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.photo-container {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+    border: 3px solid #f48fb1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdf2f5;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Cambia 'right' por 'left' si la prefieres al otro lado */
+    z-index: 1000;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+    background-color: #fcd7e3;
+}
+
+.back-arrow svg {
+    display: block;
+}
+
+/* Estilo del fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Por encima de la flecha y mensajes */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro translúcido */
+    cursor: zoom-out;
+}
+
+/* Imagen dentro del modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80vh;
+    border: 5px solid white;
+    border-radius: 10px;
+    animation: zoomAnim 0.3s ease;
+}
+
+/* Animación de entrada */
+@keyframes zoomAnim {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+/* Botón de cerrar */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: #f9b1cb; }
+
+.div_mensaje {
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 300px;
+    height: 75px;
+    
+    font-size: 24px;
+    font-weight: 600;
+    color: #e91e63;
+    letter-spacing: 1px;
+    
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 30px;
+    border-radius: 50px;
+    border: 2px solid rgba(254, 122, 142, 0.5);
+    
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    
+    animation: floatMessage 3s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+@keyframes floatMessage {
+    0%, 100% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -60%); }
+}

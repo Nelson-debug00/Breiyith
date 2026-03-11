@@ -1,0 +1,137 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+}
+
+.background {
+    background-image: url("../img/fondo2.png");
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+/* --- Encabezado con más vida --- */
+.header-section {
+    animation: floatHeader 4s ease-in-out infinite;
+    z-index: 10;
+}
+
+.main-title {
+    background: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+    backdrop-filter: blur(8px);
+    padding: 15px 35px;
+    color: #5d4037;
+    font-size: 2.0rem;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 50px; /* Bordes más redondeados */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    font-family: 'Fredoka', cursive;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.subtitle {
+    color: #cb7cb5;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+/* --- Efecto Vinilo --- */
+.music-container {
+    position: relative;
+    width: 400px; /* Ajusta según el ancho del iframe de Spotify */
+}
+
+.vinyl-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vinyl-disk {
+    position: absolute;
+    right: -50px; /* Sale por detrás */
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #4b4949 30%, #111 100%);
+    border-radius: 50%;
+    border: 5px solid #176307;
+    z-index: 1;
+    /* Animación de rotación */
+    animation: rotateVinyl 2s linear infinite;
+}
+
+/* El reproductor de Spotify actúa como la portada */
+.spotify-card {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+
+@keyframes rotateVinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Estilo de los corazones individuales */
+.floating-heart {
+    position: fixed;
+    font-size: 24px;
+    color: #f06292; /* Rosa intenso */
+    user-select: none;
+    pointer-events: none; /* Para que no interfieran con los clics */
+    z-index: 1000;
+    animation: floatUp 2s ease-out forwards;
+}
+
+/* Animación: Subir, balancearse y desvanecerse */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Cambia 'right' por 'left' si la prefieres al otro lado */
+    z-index: 1000;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+    background-color: #fcd7e3;
+}
+
+.back-arrow svg {
+    display: block;
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fotos</title>
+    <link rel="stylesheet" href="css/pictures.css" />
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="back-arrow" title="Volver">
+      <svg viewBox="0 0 24 24" width="40" height="40">
+        <path
+          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          fill="#e91e63"
+        />
+      </svg>
+    </a>
+    <div class="main-container">
+      <div class="photo-strip left">
+        <img src="img/almoria.jpg" alt="foto" />
+        <img src="img/cumpleaños_graciela.jpg" alt="foto" />
+        <img src="img/baile.jpg" alt="foto" />
+        <img src="img/graduacion.jpg" alt="foto" />
+      </div>
+
+      <div class="frame-wrapper">
+        <div class="decorative-frame">
+          <div class="photo-container">
+            <img src="img/individual.png" alt="Foto Central" />
+          </div>
+        </div>
+      </div>
+
+      <div class="div_mensaje">
+        <p>Feliz cumpleaños guapa</p>
+      </div>
+
+      <div class="photo-strip right">
+        <img src="img/casa_cultura.jpg" alt="foto" />
+        <img src="img/graduacion_no_formal.jpg" alt="foto" />
+        <img src="img/snap.jpg" alt="foto" />
+        <img src="img/polideportivo.jpg" alt="foto" />
+      </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" id="imgFull" />
+      <div id="caption"></div>
+    </div>
+
+    <script src="js/pictures.js"></script>
+  </body>
+</html>

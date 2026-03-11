@@ -1,0 +1,124 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace; /* Estilo máquina de escribir */
+}
+
+.background {
+    background-image: url("../img/fondo3.png");
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail-window {
+    background: white;
+    width: 500px;
+    height: 550px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #e91e63;
+}
+
+.mail-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.mail-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 41px); /* Resta la altura aproximada del header */
+    box-sizing: border-box;
+}
+
+.input-line {
+    border-bottom: 1px solid #e91e63;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.label { color: #999; }
+
+.content-text { margin: 0; color: #333; }
+
+.message-area {
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+    padding: 15px 0;
+    line-height: 1.6;
+    color: #444;
+    overflow-y: scroll;
+}
+
+.mail-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e91e63;
+    padding-top: 15px;
+    position: relative;
+}
+
+.footer-icons {
+    color: #999;
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.send-btn {
+    background: #fff;
+    border: 1px solid #eee;
+    color: #ff4d6d;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer-sticker {
+    position: absolute;
+    bottom: 0;
+    right: 60px;
+    width: 60px;
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+}
+
+.back-arrow:hover {
+    transform: scale(1.1) rotate(-10deg);
+    background-color: #fff;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+}
+
+.back-arrow svg {
+    display: block;
+}

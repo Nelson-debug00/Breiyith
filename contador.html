@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador</title>
+    <link rel="stylesheet" href="css/contador.css" />
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="back-arrow" title="Volver">
+      <svg viewBox="0 0 24 24" width="40" height="40">
+        <path
+          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          fill="#e91e63"
+        />
+      </svg>
+    </a>
+    
+    <div class="timer-section">
+      <h2 class="timer-title">Tiempo caminando a tu lado:</h2>
+      <div id="countdown" class="timer-container">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Días</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Horas</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Minutos</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Segundos</p>
+        </div>
+      </div>
+      <p class="timer-footer">...y contando ❤️</p>
+    </div>
+    <script src="js/contador.js"></script>
+  </body>
+</html>
