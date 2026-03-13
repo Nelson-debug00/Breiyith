@@ -218,3 +218,97 @@ body {
     0%, 100% { transform: translate(-50%, -50%); }
     50% { transform: translate(-50%, -60%); }
 }
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 80px 10px 40px 10px;
+        overflow-y: auto;
+        display: block;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: 30px;
+        position: static;
+    }
+
+    .photo-strip.left { 
+        order: 1; 
+        position: relative; 
+        left: auto; 
+        transform: none; 
+        width: 100%; 
+    }
+
+    .frame-wrapper { 
+        order: 2; 
+        position: relative; 
+        margin: 0 auto; 
+    }
+
+    .photo-strip.right { 
+        order: 3; 
+        position: relative; 
+        right: auto; 
+        transform: none; 
+        width: 100%; 
+    }
+
+    .div_mensaje {
+        order: 4;
+        position: relative;
+        top: 100%;
+        left: 35%;
+        transform: translateX(-50%);
+        margin: 50px;
+        width: fit-content;
+        max-width: 90%;
+        height: auto;
+        padding: 10px 25px;
+        font-size: 16px;
+        text-align: center;
+        background: white;
+        border: 2px solid #f48fb1;
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        z-index: 100;
+    }
+
+    .photo-strip {
+        display: flex;
+        flex-direction: row; /* Horizontal */
+        justify-content: space-between;
+        padding: 8px;
+        gap: 8px;
+        background: white;
+        border: 2px solid #f48fb1;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .photo-strip img {
+        width: 23%; /* Suficientemente pequeño para que quepan las 4 */
+        aspect-ratio: 1/1;
+        height: auto;
+        flex-shrink: 0;
+        object-fit: cover;
+        border: 1px solid #eee;
+    }
+
+    .photo-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .decorative-frame {
+        transform: none;
+        padding: 10px 10px 40px 10px;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}

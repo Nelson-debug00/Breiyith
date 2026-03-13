@@ -1,100 +1,115 @@
 body {
-    background-image: url("../img/5355876.jpg");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Arial Rounded MT Bold', sans-serif;
+  background-image: url("../img/5355876.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Arial Rounded MT Bold", sans-serif;
 }
 
 /* La tarjeta blanca */
 .calendar-card {
-    background: white;
-    border-radius: 20px;
-    width: 320px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
+  background: white;
+  border-radius: 20px;
+  width: 95%;
+  max-width: 350px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* La imagen superior */
 .calendar-image img {
-    width: 92%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 23px;
-    padding: 6px;
-    padding-top: 12px;
+  width: 92%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 23px;
+  padding: 6px;
+  padding-top: 12px;
 }
 
 .calendar-content h2 {
-    color: #5d4037;
-    margin: 2px 0;
+  color: #5d4037;
+  margin: 2px 0;
 }
 
 /* Los encabezados L M M J V S D */
 .weekdays {
-    display: grid;
-    /* grid-template-columns: repeat(7, 1fr); */
-    background: #ffe0eab4;
-    padding: 5px 0;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 10%;
-    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
+  display: grid;
+  /* grid-template-columns: repeat(7, 1fr); */
+  background: #ffe0eab4;
+  padding: 5px 0;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10%;
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
 }
 
 /* La cuadrícula de números */
 .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 15px;
-    gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 15px;
+  gap: 5px;
 }
 
 .day {
-    padding: 10px 0;
-    font-size: 15px;
-    color: #4e342e; /* Un tono café más suave y definido */
-    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #4e342e; /* Un tono café más suave y definido */
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 /* Efecto para los días que no están vacíos */
 .day:not(.empty):not(.special):hover {
-    background-color: #fff0f3;
-    color: #d81b60;
-    box-shadow: 0 4px 10px rgba(240, 98, 146, 0.15);
-    transform: translateY(-2px);
-    cursor: pointer;
+  background-color: #fff0f3;
+  color: #d81b60;
+  box-shadow: 0 4px 10px rgba(240, 98, 146, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 /* Estilo para el día 11 */
 .special {
-    background-color: #fce4ec;
-    border: 2px solid #f06292;
-    border-radius: 25%;
-    color: #e91e63;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #fce4ec;
+  border: 2px solid #f06292;
+  border-radius: 25%;
+  color: #e91e63;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .special:hover {
-    background-color: #f06291f3;
-    color: white;
+  background-color: #f06291f3;
+  color: white;
 }
 
 .hint {
-    margin-top: 15px;
-    background: white;
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 14px;
+  margin-top: 15px;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .calendar-image img {
+        height: 120px;
+    }
+    .day, .weekdays {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+    .calendar-content h2 {
+        font-size: 1.5rem;
+    }
 }
