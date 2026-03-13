@@ -167,3 +167,49 @@ body {
 .back-arrow svg {
     display: block;
 }
+
+/* --- Media Queries para Móvil --- */
+@media (max-width: 600px) {
+    .book-container {
+        transform: scale(0.65); /* Escalado proporcional */
+        transform-origin: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* Mantener translate original pero escalado por el contenedor */
+    .book.open {
+        transform: translateX(50%);
+    }
+
+    .book.finished {
+        transform: translateX(100%);
+    }
+
+    .cover h1, .cover h2 {
+        font-size: 1.6rem;
+    }
+
+    .back-arrow {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .back-arrow svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Pantallas de iPhone SE / Pequeñas */
+@media (max-width: 400px) {
+    .book-container {
+        transform: scale(0.5); /* Escalado más agresivo */
+    }
+}
+
